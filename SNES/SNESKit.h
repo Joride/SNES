@@ -6,6 +6,8 @@
 //  Copyright © 2015 Kerrelinc. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 //! Project version number for SNES.
 FOUNDATION_EXPORT double SNESVersionNumber;
 
