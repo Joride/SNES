@@ -1012,7 +1012,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SNES_CFLAGS = "-funsigned-char -ffast-math -fexpensive-optimizations -falign-functions=32 -finline -finline-functions -fno-builtin -fno-common -fomit-frame-pointer -fstrength-reduce -funroll-loops -fstrict-aliasing";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				VALID_ARCHS = "arm64 armv7 i368 x86_64";
 			};
 			name = Debug;
@@ -1033,7 +1033,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SNES_CFLAGS = "-funsigned-char -ffast-math -fexpensive-optimizations -falign-functions=32 -finline -finline-functions -fno-builtin -fno-common -fomit-frame-pointer -fstrength-reduce -funroll-loops -fstrict-aliasing";
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				VALID_ARCHS = "arm64 armv7 i368 x86_64";
 			};
 			name = Release;

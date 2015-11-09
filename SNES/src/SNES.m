@@ -24,7 +24,7 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
 @property (nonatomic, copy) NSString * loadedROMFilePath;
 
 @property (nonatomic, strong) CADisplayLink * displayLink;
-@property (nonatomic, strong) dispatch_queue_t queue;
+//@property (nonatomic, strong) dispatch_queue_t queue;
 
 @property (atomic) uint8_t * secondaryImageBuffer;
 @property (atomic) uint8_t * primaryImageBuffer;
@@ -101,14 +101,14 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
         powerOn = YES;
         self.state = kSNESStateOn;
         
-        dispatch_async(self.queue, ^
-        {
+//        dispatch_async(self.queue, ^
+//        {
             // on SNES queue?
             if([self loadROM])
             {
                 self.state = kSNESStateOn;
             }
-        });
+//        });
     }
     return powerOn;
 }
@@ -134,10 +134,10 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
     if ((self.state & kSNESStateOn) == kSNESStateOn)
     {
         reset = YES;
-        dispatch_async(self.queue, ^
-        {
+//        dispatch_async(self.queue, ^
+//        {
             SNES9xAdapterReset();
-        });
+//        });
     }
     return reset;
 }
@@ -241,7 +241,7 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
 -(void)updateGraphicsBufferWithPixelWidth: (int)width
                               pixelHeight: (int)height
 {
-    dispatch_async(dispatch_get_main_queue(), ^{
+//    dispatch_async(dispatch_get_main_queue(), ^{
         SNESVideoOutputLayer * videoOutputLayer;
         videoOutputLayer = (SNESVideoOutputLayer *) self.videoOutputLayer;
 
@@ -260,7 +260,7 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
             [videoOutputLayer setNeedsDisplay];
             videoOutputLayer.displayPrimaryBuffer = YES;
         }
-    });
+//    });
 }
 
 #pragma mark - Running the SNES runloop
@@ -320,10 +320,9 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
         else if ((self.state & kSNESStateOff) == kSNESStateOff)
         {
             SNES9xAdapterTurnOff();
-            dispatch_async(dispatch_get_main_queue(), ^
-            {
+//            dispatch_async(dispatch_get_main_queue(), ^{
                 [self generateNoiseGraphics];
-            });
+//            });
 
             // we call this method ourselves, as there is no callback
             // from the SNES9xAdapter, since we are do not run the mainloop
@@ -332,8 +331,9 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
                                          pixelHeight: _bufferHeight];
         }
     };
-    
-    dispatch_async(self.queue, runMainLoopIfRequired);
+
+    runMainLoopIfRequired();
+//    dispatch_async(self.queue, runMainLoopIfRequired);
 }
 - (void) generateNoiseGraphics
 {
@@ -471,8 +471,8 @@ CGFloat const kSNESMicrosecondsPerSecond = 1000000.00000000f;
 
         // initialize some variables and the internal queue
         _startTimeStamp = kSNESTimeIntervalInvalid;
-        _queue = dispatch_queue_create(kSNESQueue, DISPATCH_QUEUE_SERIAL);
-        
+//        _queue = dispatch_queue_create(kSNESQueue, DISPATCH_QUEUE_SERIAL);
+
         [self setupPixelBuffers];
         
         SNES9xAdapterDelegateSet(self);
