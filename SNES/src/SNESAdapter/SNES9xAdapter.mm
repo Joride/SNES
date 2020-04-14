@@ -421,7 +421,7 @@ extern "C" void SNES9xAdapterTurnOff()
 {
     DeinitializeSNESAudio();
     Memory.Deinit();
-    S9xDeinitAPU();
+//    S9xDeinitAPU();
     S9xGraphicsDeinit();
 }
 extern "C" void SNES9xAdapterS9xDidRenderScreenBuffer(int width, int height)
