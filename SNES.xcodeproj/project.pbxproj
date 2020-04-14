@@ -794,6 +794,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = A2F20C4A1BA5CD580055FE0D;
@@ -1012,7 +1013,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SNES_CFLAGS = "-funsigned-char -ffast-math -fexpensive-optimizations -falign-functions=32 -finline -finline-functions -fno-builtin -fno-common -fomit-frame-pointer -fstrength-reduce -funroll-loops -fstrict-aliasing";
-				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALID_ARCHS = "arm64 armv7 i368 x86_64";
 			};
 			name = Debug;
@@ -1033,7 +1034,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SNES_CFLAGS = "-funsigned-char -ffast-math -fexpensive-optimizations -falign-functions=32 -finline -finline-functions -fno-builtin -fno-common -fomit-frame-pointer -fstrength-reduce -funroll-loops -fstrict-aliasing";
-				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				VALID_ARCHS = "arm64 armv7 i368 x86_64";
 			};
 			name = Release;
